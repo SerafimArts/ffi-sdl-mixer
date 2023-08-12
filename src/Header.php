@@ -34,27 +34,23 @@ final class Header implements HeaderInterface
 
     public static function create(
         VersionInterface $sdlVersion = SDLVersion::LATEST,
-        VersionInterface $sdlMixerVersion = Version::LATEST,
+        VersionInterface $mixerVersion = Version::LATEST,
         PreprocessorInterface $pre = new Preprocessor(),
     ): self {
         $pre = clone $pre;
 
-        if (!$sdlMixerVersion instanceof ComparableInterface) {
-            $sdlMixerVersion = Version::create($sdlMixerVersion->toString());
+        if (!$mixerVersion instanceof ComparableInterface) {
+            $mixerVersion = Version::create($mixerVersion->toString());
         }
 
-        //
-        // Custom directive
-        //
         $pre->define('_SDL_MIXER_VERSION_GTE', static fn (string $expected): bool =>
-            \version_compare($sdlMixerVersion->toString(), $expected, '>=')
+            \version_compare($mixerVersion->toString(), $expected, '>=')
         );
-
-        //
-        // Custom directive
-        //
         $pre->define('_SDL_VERSION_GTE', static fn (string $expected): bool =>
             \version_compare($sdlVersion->toString(), $expected, '>=')
+        );
+        $pre->define('SDL_VERSION_ATLEAST', static fn (string $a, string $b, string $c): bool =>
+            \version_compare($sdlVersion->toString(), \sprintf('%d.%d.%d', $a, $b, $c), '>=')
         );
 
         $pre->add('SDL_stdinc.h', <<<'CLANG'
@@ -79,10 +75,6 @@ final class Header implements HeaderInterface
 
         $pre->define('DECLSPEC', '');
         $pre->define('SDLCALL', '');
-        $pre->define('SDL_VERSION_ATLEAST',
-            static fn (string $maj = '1', string $min = '0', string $patch = '0'): bool =>
-                \version_compare($sdlVersion->toString(), \sprintf('%d.%d.%d', $maj, $min, $patch), '>=')
-        );
 
         return new self($pre);
     }

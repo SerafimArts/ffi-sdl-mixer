@@ -50,7 +50,7 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
     public readonly string $library;
 
     /**
-     * Contains current compiled SDL Image version.
+     * Contains current compiled SDL Mixer version.
      */
     public readonly VersionInterface $version;
 
