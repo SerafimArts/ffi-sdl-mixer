@@ -87,10 +87,10 @@ the corresponding functions of the SDL Image will be available.
 $mixer = new Serafim\SDL\Mixer\Mixer(version: '2.0.5');
 
 // Use v2.6.3 from predefined versions constant
-$mixer = new Serafim\SDL\Mixer\Mixer(version: \Serafim\SDL\Image\Version::V2_6_3);
+$mixer = new Serafim\SDL\Mixer\Mixer(version: \Serafim\SDL\Mixer\Version::V2_6_3);
 
 // Use latest supported version
-$mixer = new Serafim\SDL\Mixer\Mixer(version: \Serafim\SDL\Image\Version::LATEST);
+$mixer = new Serafim\SDL\Mixer\Mixer(version: \Serafim\SDL\Mixer\Version::LATEST);
 ```
 
 To speed up the header compiler, you can use any PSR-16 compatible cache driver.
