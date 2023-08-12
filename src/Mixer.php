@@ -14,7 +14,14 @@ use FFI\Proxy\Proxy;
 use FFI\Proxy\Registry;
 use FFI\WorkDirectory\WorkDirectory;
 use Psr\SimpleCache\CacheInterface;
+use Serafim\SDL\Audio\Format;
 use Serafim\SDL\SDL;
+
+if (\unpack('S', "\x01\x00")[1] === 1) {
+    define('Serafim\SDL\Mixer\MIX_DEFAULT_FORMAT', Format::AUDIO_S16LSB);
+} else {
+    define('Serafim\SDL\Mixer\MIX_DEFAULT_FORMAT', Format::AUDIO_S16MSB);
+}
 
 /**
  * @mixin \FFI
@@ -23,6 +30,11 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
 {
     use Marshaller;
 
+    public const MIX_CHANNELS = 8;
+    public const MIX_DEFAULT_FREQUENCY = 44100;
+    public const MIX_DEFAULT_CHANNELS = 2;
+    public const MIX_DEFAULT_FORMAT = MIX_DEFAULT_FORMAT;
+    public const MIX_MAX_VOLUME = 128;
     public const MIX_CHANNEL_POST = -2;
 
     /**
@@ -73,7 +85,7 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
         }
     }
 
-    protected function useImageBinariesDirectory(): void
+    protected function useMixerBinariesDirectory(): void
     {
         if ($directory = \dirname($this->library)) {
             WorkDirectory::set($directory);

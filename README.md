@@ -120,8 +120,9 @@ $mixer = new Mixer(sdl: $sdl);
 $sdl->SDL_Init(\Serafim\SDL\InitFlags::SDL_INIT_EVERYTHING);
 $mixer->Mix_Init(\Serafim\SDL\Mixer\InitFlags::MIX_INIT_MP3);
 
-$music = $mixer->Mix_LoadMUS(__DIR__ . '/path/to/file.mp3');
-$mixer->Mix_PlayMusic(\FFI::addr($music), 0);
+$mixer->Mix_OpenAudio(44100, SDL::AUDIO_S16SYS, 2, 2048);
+$music = $mixer->Mix_LoadMUS(__DIR__ . '/example.mp3');
+$mixer->Mix_PlayMusic($music, 0);
 
 while (true) {
     usleep(1);
