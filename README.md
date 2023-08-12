@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://packagist.org/packages/serafim/ffi-sdl-mixer"><img src="https://poser.pugx.org/serafim/ffi-sdl-mixer/require/php?style=for-the-badge" alt="PHP 8.1+"></a>
-    <a href="https://github.com/libsdl-org/SDL_mixer"><img src="https://img.shields.io/badge/SDL_mixer-132B48.svg?style=for-the-badge&logo=c%2b%2b" alt="SDL_mixer"></a>
+    <a href="https://github.com/libsdl-org/SDL_mixer"><img src="https://img.shields.io/badge/SDL_mixer-2.6.3-132B48.svg?style=for-the-badge&logo=c%2b%2b" alt="SDL_mixer"></a>
     <a href="https://packagist.org/packages/serafim/ffi-sdl-mixer"><img src="https://poser.pugx.org/serafim/ffi-sdl-mixer/version?style=for-the-badge" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/serafim/ffi-sdl-mixer"><img src="https://poser.pugx.org/serafim/ffi-sdl-mixer/v/unstable?style=for-the-badge" alt="Latest Unstable Version"></a>
     <a href="https://packagist.org/packages/serafim/ffi-sdl-mixer"><img src="https://poser.pugx.org/serafim/ffi-sdl-mixer/downloads?style=for-the-badge" alt="Total Downloads"></a>
