@@ -1,6 +1,6 @@
 {
     "name": "serafim/ffi-sdl-mixer",
-    "description": "SDL2 Mixer FFI bindings for the PHP language",
+    "description": "SDL Mixer FFI bindings for the PHP language",
     "type": "library",
     "license": "MIT",
     "support": {
