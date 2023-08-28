@@ -58,8 +58,8 @@ final class Header implements HeaderInterface
                 typedef uint16_t Uint16;
                 typedef uint32_t Uint32;
                 typedef int SDL_bool;
-                typedef struct SDL_RWops SDL_RWops;
-                typedef struct SDL_version SDL_version;
+                typedef void* SDL_RWops;
+                typedef void* SDL_version;
             #endif
             CLANG);
 
