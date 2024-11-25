@@ -12,7 +12,7 @@
     <a href="https://github.com/SerafimArts/ffi-sdl-mixer/actions"><img src="https://github.com/SerafimArts/ffi-sdl-mixer/workflows/build/badge.svg"></a>
 </p>
 
-A SDL_ttf extension FFI bindings for the PHP language compatible with [SDL FFI bindings for the PHP language](https://github.com/SerafimArts/ffi-sdl).
+A SDL_mixer extension FFI bindings for the PHP language compatible with [SDL FFI bindings for the PHP language](https://github.com/SerafimArts/ffi-sdl).
 
 - [System Requirements](#requirements)
 - [Installation](#installation)
