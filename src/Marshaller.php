@@ -10,8 +10,6 @@ use FFI\CData;
  * @internal this is an internal library trait, please do not use it in your code
  * @psalm-internal Serafim\SDL\Mixer
  *
- * @psalm-require-extends Mixer
- *
  * @mixin Mixer
  *
  * @property-read object $ffi
