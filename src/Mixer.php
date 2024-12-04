@@ -55,10 +55,10 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
     public readonly VersionInterface $version;
 
     public function __construct(
-        SDL $sdl = null,
+        ?SDL $sdl = null,
         ?string $library = null,
-        VersionInterface|string $version = null,
-        CacheInterface $cache = null,
+        VersionInterface|string|null $version = null,
+        ?CacheInterface $cache = null,
         PreprocessorInterface $pre = new Preprocessor(),
     ) {
         Runtime::assertAvailable();
@@ -75,7 +75,7 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
 
         $this->useSDLBinariesDirectory();
 
-        parent::__construct(\FFI::cdef((string)$header, $this->library));
+        parent::__construct(\FFI::cdef((string) $header, $this->library));
     }
 
     protected function useSDLBinariesDirectory(): void
@@ -152,10 +152,10 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
     }
 
     /**
+     * @return non-empty-string
+     *
      * @psalm-suppress MoreSpecificReturnType
      * @psalm-suppress LessSpecificReturnStatement
-     *
-     * @return non-empty-string
      */
     private function detectLibraryPathname(?string $library): string
     {
@@ -190,7 +190,7 @@ final class Mixer extends Proxy implements InitFlags, Fading, MusicType
     }
 
     /**
-     * @deprecated Please use {@see \FFI::addr()} method instead.
+     * @deprecated please use {@see \FFI::addr()} method instead
      */
     public static function addr(CData $type): CData
     {
